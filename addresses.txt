@@ -1,0 +1,70 @@
+-------------------------------------------------------------------------------------
+
+
+
+LunchVenue.sol - Smart Contract (Ropsten Testnet)
+Compiled using Compiler v0.8.0+commit.c7dfd78e
+Contract: 0x1De56dBcF655e0740027C423F896C654C44Be26D
+Link: https://ropsten.etherscan.io/address/0x1De56dBcF655e0740027C423F896C654C44Be26D
+
+Added venues:
+-> Cafe Kentaro
+-> Cafe Brioso
+-> Plume Cafe UNSW
+-> Coffee On Campus
+
+(Manager) Dev : 0x3AF7205BAD872e7200986F68cbAd74f01ab6AbD6
+Kirat : 0x70050dF6B258904A20fD2E3A4Ea9a940507329D6
+Anish : 0x196f01B3f378D32089f9A33249b89631Bf431482
+Raymond : 0xb24a7AFa700413625a4C8182BC42a921D26986f4
+Jeffrey : 0x5DBCA31b9f8506D14D555Dd01c286a8AB99a5147
+
+Voters:
+-> Dev (1st vote), voted Cafe Brioso [2]
+-> Kirat (2nd vote), voted Cafe Brioso [2]
+-> Anish (3rd voter), voted Cafe Brioso [2]
+
+Quorum reached: Cafe Brioso [2], 3 votes received.
+
+Failed Voters (Due to quorum reached [voteOpen = false]):
+-> Raymond (4th voter), voted Cafe Brioso [2]
+
+
+
+-------------------------------------------------------------------------------------
+
+
+
+LunchVenue_updated.sol - Smart Contract (Ropsten Testnet)
+Compiled using Compiler v0.8.0+commit.c7dfd78e
+Contract: 0x8625271bC2e04F4d3040043DC98c3C453F3DfFB2
+Link: https://ropsten.etherscan.io/address/0x8625271bc2e04f4d3040043dc98c3c453f3dffb2
+
+Added venues:
+-> Cafe Kentaro
+-> Cafe Brioso
+-> Plume Cafe UNSW
+-> Coffee On Campus
+
+(Manager) Dev : 0x3AF7205BAD872e7200986F68cbAd74f01ab6AbD6
+Kirat : 0x70050dF6B258904A20fD2E3A4Ea9a940507329D6
+Anish : 0x196f01B3f378D32089f9A33249b89631Bf431482
+Raymond : 0xb24a7AFa700413625a4C8182BC42a921D26986f4
+Jeffrey : 0x5DBCA31b9f8506D14D555Dd01c286a8AB99a5147
+
+Voters:
+-> Dev (1st vote), voted Cafe Brioso [2]
+-> Kirat (2nd vote), voted Cafe Brioso [2]
+-> Anish (3rd voter), voted Cafe Brioso [2]
+
+Quorum reached: Cafe Brioso [2], 3 votes received.
+
+Failed Voters (Due to quorum reached / contract disabled [votingState = 2]):
+-> Raymond (4th voter), voted Cafe Brioso [2]
+
+
+I am unable to check numVenues and numFriends through Remix, as those variables are made internal. However, these values can be manually verified by calling venues and friends to see if those values are mapped. Alternately, the manager can expose this information temporarily, to test. In terms of unit testing, however, internal variables may be inspected to ensure that the program works as intended, and I have done so in the updated_test.sol file. Moreover, I am not using a votedVenue variable, but rather, a mostVotedVenue variable which is updated over time to reflect the current most voted for / popular venue. This variable should only be taken into account once the voting process has concluded / contract is disabled. Until this period, the variable may change as voters place their votes. This is simply a design choice that I have implemented to allow a venue to be picked, despite not having reached a quorum through votes. As addressed by Dilum on the Forum, the end-goal is to eat lunch, so I thought this inclusion was important, and it also allows for cheaper functionality in allowing participants to vote. It's important to note that this will not work, if no votes are placed by anybody, as the value of the variable will be an empty string.
+
+
+
+-------------------------------------------------------------------------------------
